@@ -1,11 +1,8 @@
 import { Client, Intents } from 'discord.js';
 import { CommandConstants } from './commands/commands.js';
 import { registerCommands } from './commands/command-registration.js';
-import dotenv from 'dotenv';
+import { config } from './env-config.js'
 
-
-dotenv.config();
-const token = process.env.TOKEN;
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 registerCommands();
@@ -22,4 +19,4 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(token);
+client.login(config.token);
