@@ -1,0 +1,10 @@
+const config = {
+  GUILD_ID: '',
+  CLIENT_ID: '',
+  TOKEN: ''
+};
+
+
+export {
+  config
+};

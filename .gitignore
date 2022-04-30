@@ -79,6 +79,9 @@ web_modules/
 .env.production.local
 .env.local
 
+# config setup to remove process.env
+discord.js
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache

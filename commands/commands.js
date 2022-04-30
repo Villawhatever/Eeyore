@@ -2,16 +2,20 @@ class CommandConstants {
   static TEST = 'test'
 }
 
-const commandDictionary = {}
-commandDictionary[CommandConstants.TEST] = 'making sure this works'
+const commandDictionary = {};
+commandDictionary[CommandConstants.TEST] = 'making sure this works';
 
-const commands = [];
-for (let key in commandDictionary) {
-  commands.push({
-    name: key,
-    description: commandDictionary[key]
-  });
+const commands = Object.entries(commandDictionary).map(e => ({name: e[0], description: e[1]}));
+
+const handleCommand = async(interaction) => {
+  if (interaction.commandName === CommandConstants.TEST) {
+    await interaction.reply('Test worked');
+  }
 };
 
 
-export { CommandConstants, commands };
+export { 
+  CommandConstants,
+  handleCommand,
+  commands
+};

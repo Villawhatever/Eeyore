@@ -1,7 +1,7 @@
 import { Client, Intents } from 'discord.js';
-import { CommandConstants } from './commands/commands.js';
+import { handleCommand } from './commands/commands.js';
 import { registerCommands } from './commands/command-registration.js';
-import { config } from './env-config.js'
+import { config } from './config/discord.js'
 
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -13,10 +13,7 @@ client.on('ready', () => {
 
 client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
-
-  if (interaction.commandName === CommandConstants.TEST) {
-    await interaction.reply('Test worked');
-  }
+  handleCommand(interaction);
 });
 
-client.login(config.token);
+client.login(config.TOKEN);
