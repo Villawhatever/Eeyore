@@ -18,11 +18,24 @@ export const TableManager = {
     repo.addExtension(tableNumber, time);
 
     const existingTable = this.find(tableNumber);
-    console.log(existingTable);
     if (!existingTable.message) return;
 
     const editedEmbed = new MessageEmbed()
-      .setTitle(buildTitle(tableNumber));
+      .setTitle(buildTitle(tableNumber))
+      .setColor(existingTable.message.embeds[0].color);
+
+    existingTable.message.edit({ embeds: [editedEmbed] });
+  },
+
+  assign(tableNumber, name) {
+    repo.assign(tableNumber, name);
+
+    const existingTable = this.find(tableNumber);
+    if (!existingTable.message) return;
+
+    const editedEmbed = new MessageEmbed()
+      .setTitle(buildTitle(tableNumber))
+      .setColor(existingTable.message.embeds[0].color);
 
     existingTable.message.edit({ embeds: [editedEmbed] });
   }

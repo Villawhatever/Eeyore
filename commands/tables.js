@@ -3,7 +3,6 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { TableManager } from '../tables/table-manager.js';
 import { buildTitle } from '../utils.js';
 
-
 const TABLE_NUMBERS = 'table-numbers';
 
 export const data = new SlashCommandBuilder()

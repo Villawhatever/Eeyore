@@ -1,4 +1,5 @@
 let tables = [];
+let assigned = [];
 
 export const TableRepository = {
   add(tableNumber, message) {
@@ -27,6 +28,16 @@ export const TableRepository = {
         tableNumber: tableNumber,
         extension: time
       });
+    }
+  },
+
+  assign(tableNumber, name) {
+    const table = this.find(tableNumber);
+    if (!assigned.includes(name)) {
+      assigned.push(name);
+    }
+    if (table) {
+      table.assigned = name;
     }
   },
 
