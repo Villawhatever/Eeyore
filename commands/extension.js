@@ -15,5 +15,6 @@ export const execute = async(interaction) => {
   const extension = interaction.options.getInteger(EXTENSION);
 
   TableManager.addExtension(tableNumber, extension);
+  
   interaction.reply({ content: `Added ${extension}min extension to table ${tableNumber}.`, ephemeral: true });
 }

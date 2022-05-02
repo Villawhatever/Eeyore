@@ -1,14 +1,15 @@
 let tables = [];
 
 export const TableRepository = {
-  add(tableNumber, messageId) {
+  add(tableNumber, message) {
     const table = this.find(tableNumber);
     if (table) {
-      table.messageId = messageId;
+      table.message = message;
     } else {
       tables.push({
         tableNumber: tableNumber,
-        messageId: messageId
+        message: message,
+        extension: 0
       });
     }
   },

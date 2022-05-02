@@ -1,6 +1,8 @@
 import { MessageEmbed } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { TableManager } from '../tables/table-manager.js';
+import { buildTitle } from '../utils.js';
+
 
 const TABLE_NUMBERS = 'table-numbers';
 
@@ -20,19 +22,10 @@ export const execute = async(interaction) => {
       .setTitle(buildTitle(tableNumber));
 
     interaction.channel.send({embeds: [tableEmbed]}).then(msg => {
-      TableManager.add(tableNumber, msg.channelId, msg.id);
+      TableManager.add(tableNumber, msg);
       msg.react('✅')
         .then(() => msg.react('🚫'));
     });
   });
   interaction.reply({ content: `Created ${tables.length} tables.`, ephemeral: true });
-}
-
-function buildTitle(tableNumber) {
-  let table = TableManager.find(tableNumber);
-  let title = `Table ${tableNumber}`;
-  if (table && table.extension > 0) {
-    title = `${title} | ${table.extension}min extension`;
-  }
-  return title
 }
