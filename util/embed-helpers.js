@@ -1,4 +1,4 @@
-import { TableManager } from "./tables/table-manager.js";
+import { TableManager } from "../tables/table-manager.js";
 
 export function buildTitle(tableNumber) {
   let table = TableManager.find(tableNumber);

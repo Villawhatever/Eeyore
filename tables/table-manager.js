@@ -1,6 +1,6 @@
 import { TableRepository } from "./dal.js";
 import { MessageEmbed } from 'discord.js';
-import { buildTitle } from "../utils.js";
+import { buildTitle } from "../util/embed-helpers.js";
 
 
 const repo = TableRepository;

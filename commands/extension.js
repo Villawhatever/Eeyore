@@ -1,8 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { TableManager } from '../tables/table-manager.js';
+import { EXTENSION, TABLE_NUMBER } from '../util/string-constants.js';
 
-const TABLE_NUMBER = 'table-number';
-const EXTENSION = 'extension';
 
 export const data = new SlashCommandBuilder()
   .setName('ext')
